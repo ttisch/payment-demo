@@ -11,7 +11,7 @@ type PaymentProps = {
 
 export default function Payment(props: PaymentProps) {
   const { checkoutId } = props;
-  const [redirectUrl] = useState(process.env.VERCEL_URL ? `${process.env.VERCEL_URL}/result` : 'http://localhost:3000/result');
+  const [redirectUrl] = useState(process.env.VERCEL_URL ? `http://${process.env.VERCEL_URL}/result` : 'http://localhost:3000/result');
   return (
     <>
       <Script
