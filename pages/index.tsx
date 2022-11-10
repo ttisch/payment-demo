@@ -3,6 +3,7 @@ const HttpsProxyAgent = require("https-proxy-agent");
 const qs = require("qs");
 import Script from "next/script";
 import Image from "next/image";
+import { useState } from "react";
 
 type PaymentProps = {
   checkoutId: string;
@@ -10,6 +11,7 @@ type PaymentProps = {
 
 export default function Payment(props: PaymentProps) {
   const { checkoutId } = props;
+  const [redirectUrl] = useState(process.env.VERCEL_URL ? `${process.env.VERCEL_URL}/result` : 'http://localhost:3000/result');
   return (
     <>
       <Script
@@ -20,7 +22,7 @@ export default function Payment(props: PaymentProps) {
           Payment for Checkout <pre>{checkoutId}</pre>
           <form
             className="paymentWidgets"
-            action="http://localhost:3000/result"
+            action={redirectUrl}
             method="POST"
             data-brands="PAYPAL"
           ></form>
