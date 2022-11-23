@@ -33,7 +33,7 @@ export default function Payment(props: PaymentProps) {
             className="paymentWidgets"
             action={redirectUrl}
             method="POST"
-            data-brands="PAYPAL"
+            data-brands="PAYPAL MASTER VISA"
           ></form>
       </div>
     </>
