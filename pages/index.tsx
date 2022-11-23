@@ -12,6 +12,14 @@ type PaymentProps = {
 export default function Payment(props: PaymentProps) {
   const { checkoutId } = props;
   const [redirectUrl] = useState(process.env.VERCEL_URL ? `http://${process.env.VERCEL_URL}/result` : 'http://localhost:3000/result');
+  
+  if (global?.window) {
+    window.wpwlOptions = {
+      paymentTarget: "vc-market",
+      shopperResultTarget: "vc-market"
+    };
+  }
+  
   return (
     <>
       <Script
